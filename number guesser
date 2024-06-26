@@ -1,0 +1,66 @@
+
+
+Console.WriteLine("Hello would you like to play a game !");
+
+string answer = Console.ReadLine();
+
+if (answer == "yes")
+
+{
+
+    Console.WriteLine("Good im thinking of a number the number is bettween -1000 and 1000");
+
+}
+
+if (answer == "no")
+
+{
+
+    
+
+}
+if (answer == "no")
+
+{
+
+    Console.WriteLine("okay have a nice day");
+    Console.WriteLine("press <Space> to exit");
+    Console.ReadLine();
+}
+Random random = new Random();
+int secretNumber = random.Next(-1000, 1000); // Generate a random number between 1 and 100
+int attempts = 0;
+bool hasGuessedCorrectly = false;
+
+
+
+
+
+while (!hasGuessedCorrectly)
+{
+    Console.Write("Enter your guess: ");
+    if (int.TryParse(Console.ReadLine(), out int userGuess))
+    {
+        attempts++;
+
+
+
+        if (userGuess < secretNumber)
+        {
+            Console.WriteLine("Too low! Try again.");
+        }
+        else if (userGuess > secretNumber)
+        {
+            Console.WriteLine("Too high! Try again.");
+        }
+        else
+        {
+            Console.WriteLine($"Congratulations! You guessed the secret number {secretNumber} in {attempts} attempts.");
+            hasGuessedCorrectly = true;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+    }
+}
